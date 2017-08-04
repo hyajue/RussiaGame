@@ -1,12 +1,7 @@
 package russiagame;
 
 /**
- * <p>Title: </p>
- * <p>Description: </p>
- * <p>Copyright: Copyright (c) 2003</p>
- * <p>Company: </p>
- * @author not attributable
- * @version 1.0
+
  */
 
 import javax.swing.*;
@@ -14,16 +9,16 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class GameAreaPanel extends Panel {
-    private Timer timer; //¼ÇÊ±Æ÷£¬ÓÃÓÚ¿ØÖÆÏÂÂäÊ±¼ä¼ä¸ô
-    private int nTime = 1000; //ËÙ¶È£¬´´½¨¼ÇÊ±Æ÷ÊÇÊ¹ÓÃ
-    private Root root; //ÒªÂäÏÂµÄ·½¿éµÄÒıÓÃ£¬¼´¸ùÀà
-    private GameTable gTable; //´´½¨Ò»¸öÓÎÏ·×À
-    private int nWhich; //±êÖ¾´´½¨ÄÄÒ»¸öÒªÏÂÂäµÄ·½¿é
-    private int tempnWhich; //±êÖ¾ÏÂÒ»¸öÒª´´½¨µÄ·½¿é£¬¼´ÌáÇ°ÏÔÊ¾ÏÂÂä¿é
-    private int nScore = 0; //Ã¿ÏûÒ»ĞĞ¼Ó10·Ö£¬ÓÃÀ´¼ÇÂ¼×Ü·ÖÊı
-    private boolean canMove = false; //±êÖ¾ÊÇ·ñÏìÓ¦¼üÅÌ
-    private Image myImage0, myImage1; //¼ÓÔØÁ½¸öÍ¼Æ¬£¬ÓÃÀ´¸²¸Ç±³¾°ºÍ×é³É·½¿é
-    private boolean isRun = true; //±êÖ¾ÊÇ¿ªÊ¼»¹ÊÇÔİÍ££¬Ò»Å¥Á½ÓÃ
+    private Timer timer; //è®°æ—¶å™¨ï¼Œç”¨äºæ§åˆ¶ä¸‹è½æ—¶é—´é—´éš”
+    private int nTime = 1000; //é€Ÿåº¦ï¼Œåˆ›å»ºè®°æ—¶å™¨æ˜¯ä½¿ç”¨
+    private Root root; //è¦è½ä¸‹çš„æ–¹å—çš„å¼•ç”¨ï¼Œå³æ ¹ç±»
+    private GameTable gTable; //åˆ›å»ºä¸€ä¸ªæ¸¸æˆæ¡Œ
+    private int nWhich; //æ ‡å¿—åˆ›å»ºå“ªä¸€ä¸ªè¦ä¸‹è½çš„æ–¹å—
+    private int tempnWhich; //æ ‡å¿—ä¸‹ä¸€ä¸ªè¦åˆ›å»ºçš„æ–¹å—ï¼Œå³æå‰æ˜¾ç¤ºä¸‹è½å—
+    private int nScore = 0; //æ¯æ¶ˆä¸€è¡ŒåŠ 10åˆ†ï¼Œç”¨æ¥è®°å½•æ€»åˆ†æ•°
+    private boolean canMove = false; //æ ‡å¿—æ˜¯å¦å“åº”é”®ç›˜
+    private Image myImage0, myImage1; //åŠ è½½ä¸¤ä¸ªå›¾ç‰‡ï¼Œç”¨æ¥è¦†ç›–èƒŒæ™¯å’Œç»„æˆæ–¹å—
+    private boolean isRun = true; //æ ‡å¿—æ˜¯å¼€å§‹è¿˜æ˜¯æš‚åœï¼Œä¸€é’®ä¸¤ç”¨
 
     public GameAreaPanel(GameTable gTable) {
         myImage0 = getToolkit().getImage("b0.jpg");
@@ -36,7 +31,7 @@ public class GameAreaPanel extends Panel {
     }
 
     public void Init() {
-        for (int i = 0; i < gTable.x; i++) //ÖØĞÂ¸øÓÎÏ·×ÀÖÃ0±êÖ¾
+        for (int i = 0; i < gTable.x; i++) //é‡æ–°ç»™æ¸¸æˆæ¡Œç½®0æ ‡å¿—
             for (int j = 0; j < gTable.y; j++) {
                 gTable.myTable[i][j] = 0;
             }
@@ -44,13 +39,13 @@ public class GameAreaPanel extends Panel {
     }
 
     public void paint(Graphics g) {
-        for (int i = 0; i < gTable.x; i++) //¸ù¾İ×À×ÓÉÏµÄ±ê¼Ç¾ö¶¨ÊÇ·ñ»­·½¿é
+        for (int i = 0; i < gTable.x; i++) //æ ¹æ®æ¡Œå­ä¸Šçš„æ ‡è®°å†³å®šæ˜¯å¦ç”»æ–¹å—
             for (int j = 0; j < gTable.y; j++) {
-                if (gTable.myTable[i][j] == 1) { //ÓĞ£¬»­À¶·½¿é
+                if (gTable.myTable[i][j] == 1) { //æœ‰ï¼Œç”»è“æ–¹å—
                     g.drawImage(myImage1, 0 + i * (15 + 2) + 2,
                                 0 + j * (15 + 2) + 2, this);
                 }
-                else if (gTable.myTable[i][j] == 0) { //ÎŞ£¬»­°×·½¿é
+                else if (gTable.myTable[i][j] == 0) { //æ— ï¼Œç”»ç™½æ–¹å—
                     g.drawImage(myImage0, 0 + i * (15 + 2) + 2,
                                 0 + j * (15 + 2) + 2, this);
                 }
@@ -58,15 +53,15 @@ public class GameAreaPanel extends Panel {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if (isRun) { //ÊÇ¿ªÊ¼
+        if (isRun) { //æ˜¯å¼€å§‹
             timer.start();
             isRun = !isRun;
-            canMove = true; //¿ÉÒÔÏìÓ¦¼üÅÌ
+            canMove = true; //å¯ä»¥å“åº”é”®ç›˜
         }
-        else { //ÊÇÔİÍ£
+        else { //æ˜¯æš‚åœ
             timer.stop();
             isRun = !isRun;
-            canMove = false; //²»¿ÉÒÔÏìÓ¦¼üÅÌ
+            canMove = false; //ä¸å¯ä»¥å“åº”é”®ç›˜
         }
     }
 
@@ -76,6 +71,6 @@ public class GameAreaPanel extends Panel {
     }
 
     public void update(Graphics g) {
-        paint(g); //·ÀÖ¹ÉÁË¸
+        paint(g); //é˜²æ­¢é—ªçƒ
     }
 }
