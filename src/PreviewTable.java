@@ -1,18 +1,13 @@
 package russiagame;
 
 /**
- * <p>Title: </p>
- * <p>Description: </p>
- * <p>Copyright: Copyright (c) 2003</p>
- * <p>Company: </p>
- * @author not attributable
- * @version 1.0
+ 
  */
 
 public class PreviewTable {
-    public static int[][] myTable; //´¢´æ±êÖ¾0±íÊ¾ÎŞ£¬1±íÊ¾ÓĞ
-    public static int x; //ºá×ø±ê
-    public static int y; //×İ×ø±ê
+    public static int[][] myTable; //å‚¨å­˜æ ‡å¿—0è¡¨ç¤ºæ— ï¼Œ1è¡¨ç¤ºæœ‰
+    public static int x; //æ¨ªåæ ‡
+    public static int y; //çºµåæ ‡
 
     public PreviewTable() {
     }
