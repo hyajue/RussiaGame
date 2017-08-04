@@ -1,12 +1,6 @@
 package russiagame;
 
 /**
- * <p>Title: </p>
- * <p>Description: </p>
- * <p>Copyright: Copyright (c) 2003</p>
- * <p>Company: </p>
- * @author not attributable
- * @version 1.0
  */
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +8,7 @@ import java.awt.event.*;
 
 public class PreviewPanel extends Panel {
     private GameTable gPreviewTable;
-    private Image myImage0, myImage1; //¼ÓÔØÁ½¸öÍ¼Æ¬£¬ÓÃÀ´¸²¸Ç±³¾°ºÍ×é³É·½¿é
+    private Image myImage0, myImage1; //åŠ è½½ä¸¤ä¸ªå›¾ç‰‡ï¼Œç”¨æ¥è¦†ç›–èƒŒæ™¯å’Œç»„æˆæ–¹å—
     private int intWhich;
 
     public PreviewPanel(PreviewTable gPreviewTable) {
@@ -28,12 +22,12 @@ public class PreviewPanel extends Panel {
         this.repaint();
     }
 
-    public void paint(Graphics g) { //»­ÏÂÒ»¸öÌáÇ°ÏÔÊ¾µÄ·½¿é
-        for (int i = 0; i < 5; i++) //ÏÈÈ«²¿ÓÃ°×·½¿é¸²¸Ç
+    public void paint(Graphics g) { //ç”»ä¸‹ä¸€ä¸ªæå‰æ˜¾ç¤ºçš„æ–¹å—
+        for (int i = 0; i < 5; i++) //å…ˆå…¨éƒ¨ç”¨ç™½æ–¹å—è¦†ç›–
             for (int j = 0; j < 4; j++)
                 g.drawImage(myImage0, 0 + i * (15 + 2), 0 + j * (15 + 2), this);
 
-        switch (intWhich) { //¸ù¾İ±êÖ¾¾ö¶¨»­ÄÄ¸ö·½¿é£¬»­À¶·½¿é
+        switch (intWhich) { //æ ¹æ®æ ‡å¿—å†³å®šç”»å“ªä¸ªæ–¹å—ï¼Œç”»è“æ–¹å—
             case 1:
                 g.drawImage(myImage1, 34, 0, this);
                 g.drawImage(myImage1, 34, 17, this);
